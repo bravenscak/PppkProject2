@@ -134,7 +134,7 @@ class TcgaScraper:
 def main():
     minio_endpoint = "localhost:9000"
     access_key = "yourMinioAccessKey"
-    secret_key = "yourMinioPassword@"
+    secret_key = "yourMinioPassword"
 
     genes_of_interest = [
         'C6orf150', 'CCL5', 'CXCL10', 'TMEM173',
