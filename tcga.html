@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Expression Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #000000;
+            margin-top: 20px;
+        }
+        #input-container {
+            margin: 20px 0;
+        }
+        #patient_id {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #1f7700;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #114000;
+        }
+        #chart {
+            width: 80%;
+            max-width: 1300px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gene Expression Visualization</h1>
+    <div id="input-container">
+        <input type="text" id="patient_id" placeholder="Enter Patient ID">
+        <button onclick="fetchData()">Fetch Data</button>
+    </div>
+    <div id="chart"></div>
+
+    <script>
+        function fetchData() {
+            const patientId = document.getElementById('patient_id').value;
+            fetch(`http://127.0.0.1:5000/gene_expression?patient_id=${patientId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        plotData(data);
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        function plotData(data) {
+            const genes = ['C6orf150', 'CCL5', 'CXCL10', 'TMEM173', 'CXCL9', 'CXCL11', 'NFKB1', 'IKBKE', 'IRF3', 'TREX1', 'ATM', 'IL6', 'IL8'];
+            const values = genes.map(gene => data[gene]);
+
+            const trace = {
+                x: genes,
+                y: values,
+                type: 'bar'
+            };
+
+            const layout = {
+                title: `Gene Expression for Patient ID: ${data.patient_id}`,
+                xaxis: { title: 'Genes' },
+                yaxis: { title: 'Expression Level' }
+            };
+
+            Plotly.newPlot('chart', [trace], layout);
+        }
+    </script>
+</body>
+</html>

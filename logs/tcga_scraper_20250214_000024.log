@@ -1,0 +1,9 @@
+2025-02-14 00:00:24,735 - INFO - Starting TCGA data scraping process
+2025-02-14 00:00:24,735 - INFO - Created downloads directory
+2025-02-14 00:00:24,735 - INFO - Setting up MinIO client
+2025-02-14 00:00:24,736 - INFO - Setting up Chrome WebDriver
+2025-02-14 00:00:25,929 - INFO - Chrome WebDriver setup complete
+2025-02-14 00:00:25,930 - INFO - Navigating to main TCGA page
+2025-02-14 00:00:32,822 - INFO - Found 0 dataset links
+2025-02-14 00:00:32,822 - INFO - Cleaning up WebDriver
+2025-02-14 00:00:34,950 - INFO - Script execution completed

@@ -1,0 +1,16 @@
+2025-02-14 00:06:39,558 - INFO - Starting TCGA data scraping process
+2025-02-14 00:06:39,558 - INFO - Created downloads directory
+2025-02-14 00:06:39,558 - INFO - Setting up MinIO client
+2025-02-14 00:06:39,559 - INFO - Setting up Chrome WebDriver
+2025-02-14 00:06:40,747 - INFO - Chrome WebDriver setup complete
+2025-02-14 00:06:40,747 - INFO - Navigating to main TCGA page
+2025-02-14 00:06:42,658 - INFO - Waiting for page to load completely
+2025-02-14 00:07:22,096 - WARNING - No table found on page - trying alternative methods
+2025-02-14 00:07:22,104 - INFO - Method 1 found 0 links
+2025-02-14 00:07:22,122 - INFO - Method 2 found 0 links
+2025-02-14 00:07:22,141 - WARNING - Method 3 failed: argument of type 'NoneType' is not iterable
+2025-02-14 00:07:22,141 - INFO - Found 0 unique dataset links
+2025-02-14 00:07:22,141 - WARNING - Expected 38 links but found 0
+2025-02-14 00:07:22,141 - ERROR - No dataset links found. Please check the page structure or selectors.
+2025-02-14 00:07:22,141 - INFO - Cleaning up WebDriver
+2025-02-14 00:07:24,302 - INFO - Script execution completed

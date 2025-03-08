@@ -1,0 +1,48 @@
+2025-02-14 00:04:25,968 - INFO - Starting TCGA data scraping process
+2025-02-14 00:04:25,968 - INFO - Created downloads directory
+2025-02-14 00:04:25,968 - INFO - Setting up MinIO client
+2025-02-14 00:04:25,969 - INFO - Setting up Chrome WebDriver
+2025-02-14 00:04:27,182 - INFO - Chrome WebDriver setup complete
+2025-02-14 00:04:27,183 - INFO - Navigating to main TCGA page
+2025-02-14 00:04:49,346 - ERROR - Critical error in main process
+Traceback (most recent call last):
+  File "C:\Users\bruno\Desktop\Pppk\minio\minio_upload.py", line 180, in main
+    dataset_links = find_dataset_links(driver)
+  File "C:\Users\bruno\Desktop\Pppk\minio\minio_upload.py", line 87, in find_dataset_links
+    wait_for_element(driver, By.CLASS_NAME, "cohortSelect")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bruno\Desktop\Pppk\minio\minio_upload.py", line 56, in wait_for_element
+    return WebDriverWait(driver, timeout).until(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        EC.presence_of_element_located((by, value))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bruno\Desktop\Pppk\minio\.venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 146, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	GetHandleVerifier [0x00007FF6EA836F15+28773]
+	(No symbol) [0x00007FF6EA7A2600]
+	(No symbol) [0x00007FF6EA638FAA]
+	(No symbol) [0x00007FF6EA68F286]
+	(No symbol) [0x00007FF6EA68F4BC]
+	(No symbol) [0x00007FF6EA6E2A27]
+	(No symbol) [0x00007FF6EA6B728F]
+	(No symbol) [0x00007FF6EA6DF6F3]
+	(No symbol) [0x00007FF6EA6B7023]
+	(No symbol) [0x00007FF6EA67FF5E]
+	(No symbol) [0x00007FF6EA6811E3]
+	GetHandleVerifier [0x00007FF6EAB8425D+3490733]
+	GetHandleVerifier [0x00007FF6EAB9BA43+3586963]
+	GetHandleVerifier [0x00007FF6EAB9147D+3544525]
+	GetHandleVerifier [0x00007FF6EA8FC9DA+838442]
+	(No symbol) [0x00007FF6EA7AD04F]
+	(No symbol) [0x00007FF6EA7A9614]
+	(No symbol) [0x00007FF6EA7A97B6]
+	(No symbol) [0x00007FF6EA798CE9]
+	BaseThreadInitThunk [0x00007FFA9D43E8D7+23]
+	RtlUserThreadStart [0x00007FFA9DADFBCC+44]
+
+2025-02-14 00:04:49,358 - INFO - Cleaning up WebDriver
+2025-02-14 00:04:51,502 - INFO - Script execution completed
